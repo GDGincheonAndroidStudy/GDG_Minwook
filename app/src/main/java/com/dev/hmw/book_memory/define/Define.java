@@ -5,5 +5,6 @@ package com.dev.hmw.book_memory.define;
  */
 public class Define {
 
-    public static final String API_URL = "http://www.aladin.co.kr/ttb/api";
+    public static final String API_URL = "http://www.aladin.co.kr/ttb/api/";
+    public static final String ttbKey = "ttbpmpmopm11659001";
 }

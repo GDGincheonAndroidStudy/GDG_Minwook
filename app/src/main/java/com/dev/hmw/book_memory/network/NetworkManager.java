@@ -12,13 +12,14 @@ public class NetworkManager {
 
     private static final NetworkManager networkManager = new NetworkManager();
 
-    private NetworkManager(){}
+    private NetworkManager() {
+    }
 
-    public static NetworkManager getIntance(){
+    public static NetworkManager getIntance() {
         return networkManager;
     }
 
-    public <T> T getRetrofit(Class<T> aa){
+    public <T> T getRetrofit(Class<T> aa) {
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(Define.API_URL)

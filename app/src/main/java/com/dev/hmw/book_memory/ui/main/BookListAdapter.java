@@ -21,6 +21,16 @@ import java.util.List;
 public class BookListAdapter extends RecyclerView.Adapter<BookListAdapter.ViewHolder> {
 
     private List<BestSellerBook> mItems;
+
+    public List<BestSellerBook> getmItems() {
+        return mItems;
+    }
+
+    public BookListAdapter setmItems(List<BestSellerBook> mItems) {
+        this.mItems = mItems;
+        return this;
+    }
+
     private Context context;
 
     BookListAdapter(List<BestSellerBook> items, Context context) {
@@ -62,9 +72,9 @@ public class BookListAdapter extends RecyclerView.Adapter<BookListAdapter.ViewHo
 
         private final ImageView imageView;
         private final TextView titleView;
-        private final TextView authorView ;
-        private final TextView publisher ;
-        private final TextView dateView ;
+        private final TextView authorView;
+        private final TextView publisher;
+        private final TextView dateView;
 
         ViewHolder(View view) {
             super(view);

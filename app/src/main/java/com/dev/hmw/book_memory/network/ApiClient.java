@@ -13,12 +13,12 @@ import retrofit.http.POST;
 public interface ApiClient {
 
     @FormUrlEncoded
-    @POST("/ItemList.aspx")
+    @POST("ItemList.aspx")
     Call<BestSellerBookList> bestSellerBookList(@Field("ttbkey") String ttbKey,
-                            @Field("QueryType") String queryType,
-                            @Field("MaxResults") int maxResults,
-                            @Field("start") int start,
-                            @Field("SearchTarget") String searchTarget,
-                            @Field("output") String output,
-                            @Field("Version") int version);
+                                                @Field("QueryType") String queryType,
+                                                @Field("MaxResults") int maxResults,
+                                                @Field("start") int start,
+                                                @Field("SearchTarget") String searchTarget,
+                                                @Field("output") String output,
+                                                @Field("Version") int version);
 }

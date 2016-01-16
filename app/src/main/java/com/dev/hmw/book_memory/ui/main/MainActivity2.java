@@ -10,14 +10,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
-import android.widget.ListView;
 import android.widget.Toast;
 
 import com.dev.hmw.book_memory.R;
 import com.dev.hmw.book_memory.dao.BestSellerBookList;
+import com.dev.hmw.book_memory.define.Define;
 import com.dev.hmw.book_memory.network.ApiClient;
 import com.dev.hmw.book_memory.network.NetworkManager;
-import com.dev.hmw.book_memory.ui.BestSellerListAdapter;
 
 import retrofit.Call;
 import retrofit.Callback;
@@ -25,11 +24,10 @@ import retrofit.Response;
 import retrofit.Retrofit;
 
 public class MainActivity2 extends AppCompatActivity {
+    //
 
-    ListView listView;
-    String ttbKey = "ttbpmpmopm11659001";
+
     private int startPage = 1;
-    private BestSellerListAdapter bestSellerListAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +40,7 @@ public class MainActivity2 extends AppCompatActivity {
         actionBar.setHomeAsUpIndicator(R.drawable.ic_menu);
         actionBar.setDisplayHomeAsUpEnabled(true);
 
-        FloatingActionButton fab = (FloatingActionButton)findViewById(R.id.fab);
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -56,10 +54,12 @@ public class MainActivity2 extends AppCompatActivity {
         });
 
         BookPagerAdapter adapter = new BookPagerAdapter(getSupportFragmentManager());
-        ViewPager viewPager = (ViewPager)findViewById(R.id.viewpager);
+        ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
         viewPager.setAdapter(adapter);
-        TabLayout tabLayout = (TabLayout)findViewById(R.id.tablayout);
+        TabLayout tabLayout = (TabLayout) findViewById(R.id.tablayout);
         tabLayout.setupWithViewPager(viewPager);
+
+
     }
 
     private void addItem() {
@@ -72,21 +72,15 @@ public class MainActivity2 extends AppCompatActivity {
         ApiClient apiClient = NetworkManager.getIntance().getRetrofit(ApiClient.class);
 
 
-        Call<BestSellerBookList> call = apiClient.bestSellerBookList(ttbKey, "Bestseller", 15, startIndex, "book", "js", 20131101);
+        Call<BestSellerBookList> call = apiClient.bestSellerBookList(Define.ttbKey, "Bestseller", 15,
+                startIndex, "book", "js", 20131101);
 
         call.enqueue(new Callback<BestSellerBookList>() {
             @Override
             public void onResponse(Response<BestSellerBookList> response, Retrofit retrofit) {
                 Log.d("bookTest", "network success");
 
-                /*BestSellerBookList bestSellerBookList = response.body();
-                bestSellerListAdapter.setList(bestSellerBookList.getItem());
-
-                if (first == true) {
-                    listView.setAdapter(bestSellerListAdapter);
-                } else {
-                    bestSellerListAdapter.notifyDataSetChanged();
-                }*/
+                BestSellerBookList bestSellerBookList = response.body();
             }
 
             @Override
