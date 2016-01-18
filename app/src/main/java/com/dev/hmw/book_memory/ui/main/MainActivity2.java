@@ -8,20 +8,10 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
 import com.dev.hmw.book_memory.R;
-import com.dev.hmw.book_memory.dao.BestSellerBookList;
-import com.dev.hmw.book_memory.define.Define;
-import com.dev.hmw.book_memory.network.ApiClient;
-import com.dev.hmw.book_memory.network.NetworkManager;
-
-import retrofit.Call;
-import retrofit.Callback;
-import retrofit.Response;
-import retrofit.Retrofit;
 
 public class MainActivity2 extends AppCompatActivity {
     //
@@ -64,33 +54,6 @@ public class MainActivity2 extends AppCompatActivity {
 
     private void addItem() {
 
-
-    }
-
-    private void getBestSellerList(int startIndex, final boolean first) {
-
-        ApiClient apiClient = NetworkManager.getIntance().getRetrofit(ApiClient.class);
-
-
-        Call<BestSellerBookList> call = apiClient.bestSellerBookList(Define.ttbKey, "Bestseller", 15,
-                startIndex, "book", "js", 20131101);
-
-        call.enqueue(new Callback<BestSellerBookList>() {
-            @Override
-            public void onResponse(Response<BestSellerBookList> response, Retrofit retrofit) {
-                Log.d("bookTest", "network success");
-
-                BestSellerBookList bestSellerBookList = response.body();
-            }
-
-            @Override
-            public void onFailure(Throwable t) {
-                Log.e("bookTest", "network failure");
-                Log.e("bookTest", t.getMessage());
-                Log.e("bookTest", t.toString());
-                t.printStackTrace();
-            }
-        });
 
     }
 
