@@ -56,4 +56,6 @@ dependencies {
     androidTestCompile 'com.android.support.test.espresso:espresso-web:2.2.1'
 // Espresso-idling-resource for synchronization with background jobs
     androidTestCompile 'com.android.support.test.espresso:espresso-idling-resource:2.2.1'
+
+    androidTestCompile 'com.android.support:support-annotations:23.1.1'
 }
