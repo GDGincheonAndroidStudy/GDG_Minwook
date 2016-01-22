@@ -12,8 +12,9 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.dev.hmw.book_memory.R;
+import com.dev.hmw.book_memory.ui.categoryBookList.BookPagerAdapter;
 
-public class MainActivity2 extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity {
     //
 
 
@@ -37,7 +38,7 @@ public class MainActivity2 extends AppCompatActivity {
                 Snackbar.make(findViewById(R.id.coordinator), "I'm a Snackbar", Snackbar.LENGTH_LONG).setAction("Action", new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Toast.makeText(MainActivity2.this, "Snackbar Action", Toast.LENGTH_LONG).show();
+                        Toast.makeText(MainActivity.this, "Snackbar Action", Toast.LENGTH_LONG).show();
                     }
                 }).show();
             }
