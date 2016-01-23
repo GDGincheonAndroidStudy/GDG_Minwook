@@ -12,7 +12,6 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.dev.hmw.book_memory.R;
-import com.dev.hmw.book_memory.ui.categoryBookList.BookPagerAdapter;
 
 public class MainActivity extends AppCompatActivity {
     //
