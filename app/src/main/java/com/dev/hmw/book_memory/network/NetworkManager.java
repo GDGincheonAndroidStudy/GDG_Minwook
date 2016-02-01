@@ -2,8 +2,9 @@ package com.dev.hmw.book_memory.network;
 
 import com.dev.hmw.book_memory.define.Define;
 
-import retrofit.GsonConverterFactory;
-import retrofit.Retrofit;
+import retrofit2.GsonConverterFactory;
+import retrofit2.Retrofit;
+
 
 /**
  * Created by Heo Minwook on 2015-12-08.

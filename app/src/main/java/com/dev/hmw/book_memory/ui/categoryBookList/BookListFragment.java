@@ -19,10 +19,10 @@ import com.dev.hmw.book_memory.network.NetworkManager;
 
 import java.util.ArrayList;
 
-import retrofit.Call;
-import retrofit.Callback;
-import retrofit.Response;
-import retrofit.Retrofit;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 
 /**
  * Created by Heo Minwook on 2016-01-15.
@@ -48,7 +48,6 @@ public class BookListFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         Bundle args = getArguments();
         int tabPosition = args.getInt(TAB_POSITION);
-
         ArrayList<BestSellerBook> items = new ArrayList<BestSellerBook>();
         /*for (int i = 0; i < 50; i++) {
             //items.add("Tab #" + tabPosition + " item #" + i);
@@ -59,11 +58,8 @@ public class BookListFragment extends Fragment {
 
         View v = inflater.inflate(R.layout.fragment_book_list_view, container, false);
         RecyclerView recyclerView = (RecyclerView) v.findViewById(R.id.recyclerview);
-
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
-
         recyclerView.setLayoutManager(linearLayoutManager);
-
         bookListAdapter = new BookListAdapter(items, getContext());
         recyclerView.setAdapter(bookListAdapter);
 
@@ -81,7 +77,7 @@ public class BookListFragment extends Fragment {
 
         call.enqueue(new Callback<BestSellerBookList>() {
             @Override
-            public void onResponse(Response<BestSellerBookList> response, Retrofit retrofit) {
+            public void onResponse(Response<BestSellerBookList> response) {
                 Log.d("bookTest", "network success");
 
                 BestSellerBookList bestSellerBookList = response.body();

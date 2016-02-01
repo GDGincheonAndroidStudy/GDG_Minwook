@@ -3,8 +3,8 @@ package com.dev.hmw.book_memory.ui.main;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
+import android.util.Log;
 
-import com.dev.hmw.book_memory.ui.categoryBookList.BookListFragment;
 import com.dev.hmw.book_memory.ui.searchBook.SearchBookFragment;
 
 /**
@@ -22,11 +22,18 @@ public class BookPagerAdapter extends FragmentStatePagerAdapter {
 
         switch (position) {
             case 0:
-                resultFragment = BookListFragment.newInstance(position);
+                //resultFragment = BookListFragment.newInstance(position);
+                resultFragment = SearchBookFragment.newInstance();
                 break;
             case 1:
                 resultFragment = SearchBookFragment.newInstance();
+                break;
+            case 2:
+                //resultFragment = BookListFragment.newInstance(position);
+                resultFragment = SearchBookFragment.newInstance();
+                break;
         }
+        Log.d("book", "BookPagerAdapter getItem postion : "+position);
         return resultFragment;
     }
 

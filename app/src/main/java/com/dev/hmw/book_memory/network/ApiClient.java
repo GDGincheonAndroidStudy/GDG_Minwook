@@ -3,10 +3,10 @@ package com.dev.hmw.book_memory.network;
 import com.dev.hmw.book_memory.dao.BestSellerBookList;
 import com.dev.hmw.book_memory.dao.SearchBookList;
 
-import retrofit.Call;
-import retrofit.http.Field;
-import retrofit.http.FormUrlEncoded;
-import retrofit.http.POST;
+import retrofit2.Call;
+import retrofit2.http.Field;
+import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.POST;
 
 /**
  * Created by Bill MinWook Heo on 15. 7. 21..

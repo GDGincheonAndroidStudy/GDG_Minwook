@@ -1,14 +1,8 @@
 package com.dev.hmw.book_memory.network;
 
-import com.squareup.okhttp.MediaType;
-import com.squareup.okhttp.RequestBody;
-import com.squareup.okhttp.ResponseBody;
 
-import java.io.IOException;
-import java.lang.annotation.Annotation;
-import java.lang.reflect.Type;
-
-import retrofit.Converter;
+import okhttp3.MediaType;
+import retrofit2.Converter;
 
 /**
  * Created by Jason Kim on 2015-08-13.
@@ -16,7 +10,7 @@ import retrofit.Converter;
 public class StringConverter extends Converter.Factory {
     private static final MediaType MEDIA_TYPE = MediaType.parse("text/plain");
 
-    @Override
+    /*@Override
     public Converter<ResponseBody, ?> fromResponseBody(Type type, Annotation[] annotations) {
         if (String.class.equals(type)) {
             return new Converter<ResponseBody, String>() {
@@ -40,5 +34,5 @@ public class StringConverter extends Converter.Factory {
             };
         }
         return null;
-    }
+    }*/
 }

@@ -22,10 +22,10 @@ import com.dev.hmw.book_memory.network.NetworkManager;
 
 import java.util.ArrayList;
 
-import retrofit.Call;
-import retrofit.Callback;
-import retrofit.Response;
-import retrofit.Retrofit;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 
 /**
  * Created by Bill MinWook Heo on 16. 1. 23..
@@ -50,7 +50,7 @@ public class SearchBookFragment extends Fragment implements View.OnClickListener
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         Bundle args = getArguments();
-
+        Log.d("book", "SearchBookFragment onCreateView!@!!");
         ArrayList<SearchBook> items = new ArrayList<SearchBook>();
         /*for (int i = 0; i < 50; i++) {
             //items.add("Tab #" + tabPosition + " item #" + i);
@@ -64,16 +64,14 @@ public class SearchBookFragment extends Fragment implements View.OnClickListener
         RecyclerView recyclerView = (RecyclerView) v.findViewById(R.id.rv_search_book_list);
         searchInputText = (EditText) v.findViewById(R.id.et_search_input);
         Button btnComfirm = (Button) v.findViewById(R.id.bt_search_comfirm);
+        btnComfirm.setOnClickListener(this);
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
-
         recyclerView.setLayoutManager(linearLayoutManager);
-
         searchListAdapter = new SearchListAdapter(items, getContext());
         recyclerView.setAdapter(searchListAdapter);
 
         //getBestSellerList(1, "");
-
         return v;
     }
 
@@ -82,11 +80,11 @@ public class SearchBookFragment extends Fragment implements View.OnClickListener
         ApiClient apiClient = NetworkManager.getIntance().getRetrofit(ApiClient.class);
 
         Call<SearchBookList> call = apiClient.searchBook(Define.ttbKey, searchText, "Title",
-                20, startIndex, "Book", "js", 20070901);
+                10, startIndex, "Book", "js", 20070901);
 
         call.enqueue(new Callback<SearchBookList>() {
             @Override
-            public void onResponse(Response<SearchBookList> response, Retrofit retrofit) {
+            public void onResponse(Response<SearchBookList> response) {
                 Log.d("bookTest", "network success");
 
                 SearchBookList searchBookList = response.body();
@@ -104,6 +102,7 @@ public class SearchBookFragment extends Fragment implements View.OnClickListener
                 t.printStackTrace();
             }
         });
+
 
     }
 
